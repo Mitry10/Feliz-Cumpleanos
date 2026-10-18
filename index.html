@@ -48,10 +48,13 @@ h1,h2,h3{font-family:'Playfair Display',serif} .intro-card h1{font-size:clamp(2.
 .hero{max-width:1100px;margin:auto;padding:35px 22px 65px;display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(30px,6vw,80px);align-items:center}
 .hero-copy .eyebrow{color:#c36b85}.hero h2{font-size:clamp(3rem,7vw,6.3rem);line-height:.98;margin:18px 0 22px;letter-spacing:-.04em}.hero h2 em{color:#ef5682;font-weight:500}
 .hero-copy p{font-size:1.02rem;line-height:1.9;color:#8c6a7a;max-width:500px}
-.photo-frame{position:relative;padding:14px;border-radius:30px;background:linear-gradient(140deg,#fff,#f9cbd9,#f9e2b3);box-shadow:0 24px 65px #ba67852b;transform:rotate(2deg)}
+
+/* NUEVOS ESTILOS PARA LA FOTO CUADRADA Y ADAPTABLE */
+.photo-frame{position:relative;padding:14px;border-radius:30px;background:linear-gradient(140deg,#fff,#f9cbd9,#f9e2b3);box-shadow:0 24px 65px #ba67852b;transform:rotate(2deg);max-width:420px;width:100%;margin:0 auto;}
 .photo-frame:before{content:"✦";position:absolute;top:-23px;right:22px;color:#d7a84c;font-size:3rem;z-index:2}
-.photo-frame img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;background:linear-gradient(135deg,#ffe0e9,#fff0d8)}
+.photo-frame img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:20px;background:linear-gradient(135deg,#ffe0e9,#fff0d8)}
 .photo-caption{text-align:center;font-family:'Playfair Display',serif;font-size:1.2rem;padding:14px 5px 4px;color:#9b5d73}
+
 .section{max-width:1000px;margin:0 auto;padding:65px 22px}
 .section-head{text-align:center;margin-bottom:30px}.section-head .eyebrow{color:#c26b86}.section-head h2{font-size:clamp(2.3rem,5vw,4rem);margin:12px 0;color:#4c2b40}.section-head p{color:#997a89;line-height:1.7}
 .letter{max-width:780px;margin:auto;padding:clamp(26px,6vw,58px);background:#fffdfb;border:1px solid #f8dfe5;border-radius:12px 34px 12px 34px;box-shadow:0 20px 60px #a85b7520;position:relative}
@@ -67,7 +70,7 @@ h1,h2,h3{font-family:'Playfair Display',serif} .intro-card h1{font-size:clamp(2.
 .final-note{text-align:center;padding:55px 20px 90px;background:radial-gradient(ellipse at center,#ffe4eb,transparent 70%)}.final-note .star{font-size:2rem;color:#d9a94f}.final-note h2{font-size:clamp(2.6rem,7vw,5rem);margin:14px 0;color:#4c2b40}.final-note p{color:#926f80;line-height:1.8}.final-note .tiny{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:#bd7b91}
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:10;overflow:hidden}.shooting-star{position:fixed;z-index:1;top:0;left:0;width:170px;height:2px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),#ff9eb9,transparent);filter:drop-shadow(0 0 5px #ff83a7);transform:rotate(-28deg);animation:shoot 1.25s ease-out forwards}@keyframes shoot{0%{opacity:0;transform:translate(0,0) rotate(-28deg) scaleX(.2)}15%{opacity:1}100%{opacity:0;transform:translate(65vw,45vh) rotate(-28deg) scaleX(1.2)}}.piece{position:absolute;top:-20px;animation:fall 2.8s ease-in forwards;font-size:20px}@keyframes fall{to{transform:translateY(110vh) rotate(650deg);opacity:0}}
 .burst{animation:burst .65s ease-out forwards!important}@keyframes burst{0%{transform:rotate(-45deg) scale(1.4);opacity:1}45%{transform:rotate(-45deg) scale(2.1);opacity:.9}100%{transform:rotate(-45deg) scale(.1);opacity:0}}
-@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:15px}.hero-copy{text-align:center}.hero-copy p{margin-inline:auto}.photo-frame{width:min(430px,92%);margin:0 auto}.memory-grid{grid-template-columns:1fr}.memory{min-height:150px}.song-card{align-items:flex-start;flex-wrap:wrap}.song-controls{margin-left:0}.topbar{padding:18px}.section{padding:48px 18px}}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:15px}.hero-copy{text-align:center}.hero-copy p{margin-inline:auto}.photo-frame{width:min(320px,92%);margin:0 auto}.memory-grid{grid-template-columns:1fr}.memory{min-height:150px}.song-card{align-items:flex-start;flex-wrap:wrap}.song-controls{margin-left:0}.topbar{padding:18px}.section{padding:48px 18px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -91,7 +94,6 @@ h1,h2,h3{font-family:'Playfair Display',serif} .intro-card h1{font-size:clamp(2.
   <div class="intro-card">
     <div class="eyebrow">Una sorpresa hecha con cariño</div>
     <h1>Hoy el mundo<br>celebra <span>tu vida.</span></h1>
-    <!-- MENSAJE DE PORTADA: edita el texto del parrafo siguiente -->
     <p class="intro-note">Feliz cumpleaños, mi niña. Preparé algo especial para ti… pero primero, necesito que despiertes este pequeño corazón. 💗</p>
     <div class="heart-wrap"><button class="heart-btn" id="heart" aria-label="Toca el corazón para comenzar"><span class="heart-square"></span></button></div>
     <div class="tap-count" id="tapCount">TOCA EL CORAZÓN</div>
@@ -107,13 +109,15 @@ h1,h2,h3{font-family:'Playfair Display',serif} .intro-card h1{font-size:clamp(2.
       <div class="eyebrow">Hoy es tu día, preciosa</div>
       <h2>¡Feliz<br><em>cumpleaños!</em></h2>
       <p>Hoy no se trata de contar los años, sino de celebrar todo lo bonito que eres, las sonrisas que regalas y la luz que llevas contigo. Ojalá este nuevo capítulo te devuelva multiplicada toda la felicidad que mereces.</p>
-
     </div>
-    <!-- FOTO DE USTEDES: cambia la imagen de ejemplo por src="fotos/nosotros.jpg" -->
-    <div class="photo-frame"><img id="couplePhoto" alt="Nuestra foto juntos" src="TuyYo.jpeg" width="90%" height="auto"><div class="photo-caption">Un recuerdo de nosotros ♡</div></div>
+    <!-- FOTO DE USTEDES: Cuadrada y perfectamente adaptable a PC y celular -->
+    <div class="photo-frame">
+      <img id="couplePhoto" alt="Nuestra foto juntos" src="TuyYo.jpeg">
+      <div class="photo-caption">Un recuerdo de nosotros ♡</div>
+    </div>
   </section>
 
-  <!-- CARTA DE CUMPLEANOS: edita el titulo y los parrafos de este apartado -->
+  <!-- CARTA DE CUMPLEANOS -->
   <section class="section">
     <div class="section-head"><div class="eyebrow">Unas palabras para ti</div><h2>Una cartita de cumpleaños</h2><p>Porque hay cosas que merecen decirse con calma y desde el corazón.</p></div>
     <article class="letter">
@@ -126,8 +130,7 @@ Deseo que este nuevo año de vida esté lleno de oportunidades bonitas, sueños 
 
 Gracias por ser tú, por tu forma de ver el mundo y por hacer especiales tantos momentos. Hoy quiero que te sientas celebrada, querida y orgullosa de la persona maravillosa que eres.
 
-Que la vida te sorprenda con cosas preciosas. Y que yo pueda estar ahí para aplaudir cada uno de tus logros y acompañarte en muchas aventuras más.
-
+Que la vida te sorprenda con cosas preciosas. Y que yo pueda estar ahí para aplaudir cada uno de tus logros y acompañarte en muchas aventuras más.</p>
       <p class="signature">Con todo mi cariño, hoy y siempre. ❤️</p>
     </article>
   </section>
@@ -141,7 +144,7 @@ Que la vida te sorprenda con cosas preciosas. Y que yo pueda estar ahí para apl
     </div>
   </section>
 
-  <!-- CANCION: los datos se cambian en la ZONA FACIL DE PERSONALIZAR del script -->
+  <!-- CANCION -->
   <section class="section">
     <div class="section-head"><div class="eyebrow">Dale play a este momento</div><h2>Nuestra canción 🎶</h2><p>Elige una canción especial para acompañar esta sorpresa.</p></div>
     <div class="song-card"><div class="album" id="albumCover">♫</div><div class="song-info"><h3 id="songTitle">Una canción para ti</h3><p id="songSub">Agrega un audio desde tu dispositivo</p></div><div class="song-controls"><button id="playBtn" aria-label="Reproducir o pausar">▶</button></div></div>
@@ -151,20 +154,8 @@ Que la vida te sorprenda con cosas preciosas. Y que yo pueda estar ahí para apl
   <section class="final-note"><div class="star">✦ ✧ ✦</div><div class="tiny">Y antes de que termine tu día…</div><h2>¡Que cumplas<br>muchísimos más!</h2><p>Que hoy te consientan muchísimo, que te rías hasta que te duela la panza<br>y que guardes este día en un rinconcito bonito de tu corazón. 💖</p><div style="font-size:2rem;margin-top:24px">🎂 🎁 🥳</div></section>
 </main>
 <script>
-/* =========================================================
-   ZONA FACIL DE PERSONALIZAR (busca este titulo en Bloc de notas)
-   - CONTRASENA: cambia PASSWORD_CORRECTA.
-   - FOTO: busca "FOTO DE USTEDES" en el HTML.
-   - CANCION: edita titulo, artista, portada y archivo abajo.
-   - CARTA: busca "CARTA DE CUMPLEANOS" y cambia sus parrafos.
-   Deja los archivos en carpetas junto a este HTML, por ejemplo:
-   fotos/nosotros.jpg, fotos/portada-cancion.jpg, musica/mi-cancion.mp3
-   ========================================================= */
-
-// 1) CONTRASENA DE ACCESO
 const PASSWORD_CORRECTA = "071821";
 
-// 2) DATOS DE LA CANCION: personaliza estos cuatro valores
 const CANCION = {
   titulo: "Una canción para ti",
   artista: "Agrega aquí el nombre del artista",
@@ -204,16 +195,16 @@ heart.addEventListener('click',()=>{
 });
 function shootingStar(){const star=document.createElement('i');star.className='shooting-star';star.style.left=(Math.random()*65)+'%';star.style.top=(Math.random()*45)+'%';document.body.appendChild(star);setTimeout(()=>star.remove(),1400);}
 function confetti(){for(let j=0;j<7;j++)setTimeout(shootingStar,j*240);const box=document.getElementById('confetti');const bits=['✦','♡','💗','✨','✧','🌸'];for(let i=0;i<65;i++){const el=document.createElement('span');el.className='piece';el.textContent=bits[Math.floor(Math.random()*bits.length)];el.style.left=Math.random()*100+'%';el.style.animationDelay=Math.random()*1.4+'s';el.style.fontSize=(12+Math.random()*22)+'px';box.appendChild(el);setTimeout(()=>el.remove(),4500);}}
-// Cargar los datos de la cancion desde la zona de personalizacion
- document.getElementById('songTitle').textContent = CANCION.titulo;
- document.getElementById('songSub').textContent = CANCION.artista;
- const albumCover = document.getElementById('albumCover');
- const coverImg = document.createElement('img');
- coverImg.alt = 'Portada de la canción';
- coverImg.onload = () => { albumCover.textContent = ''; albumCover.appendChild(coverImg); };
- coverImg.onerror = () => { albumCover.textContent = '♫'; };
- coverImg.src = CANCION.portada;
- document.getElementById('audio').src = CANCION.archivo;
+
+document.getElementById('songTitle').textContent = CANCION.titulo;
+document.getElementById('songSub').textContent = CANCION.artista;
+const albumCover = document.getElementById('albumCover');
+const coverImg = document.createElement('img');
+coverImg.alt = 'Portada de la canción';
+coverImg.onload = () => { albumCover.textContent = ''; albumCover.appendChild(coverImg); };
+coverImg.onerror = () => { albumCover.textContent = '♫'; };
+coverImg.src = CANCION.portada;
+document.getElementById('audio').src = CANCION.archivo;
 
 const audio=document.getElementById('audio'), playBtn=document.getElementById('playBtn');
 playBtn.addEventListener('click',async()=>{if(!audio.src){document.getElementById('songSub').textContent='Primero elige una canción con el botón de arriba 🎵';return;}if(audio.paused){try{await audio.play();playBtn.textContent='Ⅱ';}catch(e){document.getElementById('songSub').textContent='No se pudo reproducir este audio. Prueba con otro archivo.';}}else{audio.pause();playBtn.textContent='▶';}});
